@@ -1,13 +1,7 @@
 #!/bin/bash
 
 # DO NOT RUN THIS SCRIPT IN PRODUCTION 
-# This scripts attempt to perform a 
-#
-#
-#
-
-
-
+# This scripts attempts to cross sign intermediate CA Certificates using pki/sign-self-issued
 
 ### Certs
 export CommonName="hashidemos.io"
@@ -24,6 +18,9 @@ if [ $x != "yes" ]; then
   echo "Please type yes to continue, exiting."
   exit
 fi
+
+## Go to working directory
+mkdir -p certs && cd certs
 
 # Mount Root CA and generate certs:
 for i in {1..2}
